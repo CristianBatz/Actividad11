@@ -1,4 +1,4 @@
-def Quick_sort(lista):
+def quick_sort(lista):
     if len(lista) <= 1:
         return lista
 
@@ -7,7 +7,7 @@ def Quick_sort(lista):
     iguales = [nombre for nombre in lista if nombre == pivote]
     mayores = [nombre for nombre in lista[1:] if nombre > pivote]
 
-    return Quick_sort(menores) + iguales + Quick_sort(mayores)
+    return quick_sort(menores) + iguales + quick_sort(mayores)
 
 
 nombres = []
@@ -28,6 +28,9 @@ while opcion != 3:
                 nombres.append(input("Nombre: "))
 
         case 2:
-            print("=== Lista de Estudiantes ===")
-            estudiantes = Quick_sort(nombres)
-            print(f"{estudiantes}")
+            print("=== Lista de estudiantes ordenada ===")
+            i = 0
+            estudiantes = quick_sort(nombres)
+            for estudiante in estudiantes:
+                i+=1
+                print(f"{i}:{estudiante}")
